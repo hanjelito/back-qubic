@@ -1,0 +1,22 @@
+players
+players id
+//
+crear tokens par aun jugador
+tokens crate
+token player id
+token player id buy
+vender
+token player id buy 0
+
+
+//estado del jugador
+funding/player/id/status
+
+wallet/balance
+wallet/transaction
+
+admin/contract/deploy
+admin/oracle/udpate
+
+search/player
+

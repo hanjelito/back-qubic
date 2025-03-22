@@ -1,0 +1,41 @@
+services:
+  app:
+    hostname: backend
+    build:
+      context: ./app
+      dockerfile: ../nestjs/Dockerfile
+    restart: unless-stopped
+    container_name: qubic-nest-app
+    working_dir: /app
+    env_file:
+      - ./nestjs/.env
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    networks:
+      - system_qubic
+  
+  mongo:
+    image: mongo:latest
+    container_name: qubic-mongo-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 'jTKPT@1F3.y'
+      MONGO_INITDB_DATABASE: nestdb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - system_qubic
+
+volumes:
+  mongo-data:
+
+networks:
+  system_qubic:
+    driver: bridge

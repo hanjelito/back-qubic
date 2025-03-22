@@ -1,0 +1,35 @@
+Como experto y jurado de un hackaton de tecnología web3 y blockchain, genera un brief
+que nos ayude a complementar la siguiente idea de manera que podamos obtener un
+premio que nos de acceso a la financiación para desarrollar el proyecto a largo plazo.
+●​ Descripción de la idea y problema a resolver: Queremos usar Web3 y Blockchain
+para permitir a los equipos de fútbol y a los fanáticos acercarse con un objetivo
+común: contratar un jugador que por su coste el equipo no puede permitirse.
+La idea general es desarrollar una plataforma en la que los clubes de fútbol puedan publicar
+uno o más jugadores que resulten interesantes para reforzar su plantilla, pero que por
+motivos financieros el club no se puede permitir, con la intención de que los fanáticos
+puedan contribuir económicamente a la contratación comprando una parte del contrato.
+Participantes: El club de fútbol, los fanáticos, el mismo jugador y nosotros como empresa
+que facilita la plataforma para la operación.
+Requisitos del desafio a resolver en el hackaton:
+Challenge 1 Financing System Using Tokenized RWAs A system through which different
+parties (governments, citizens, private sector…) can co-finance projects (e.g., financing
+SMEs, a parking facility project , EV charging stations, Real Estate, Renewable Energy…)
+using tokenized real-world assets RWAs. Potential features: ● Implementation of smart
+contracts for asset tokenization. ● Integration with dynamic NFTs or fungible tokens QFTs or
+QUBIC assets). ● A traceability system that records changes in ownership and asset value.
+● Intuitive UX/UI dashboard for asset management. ● Use of oracles to update asset values
+in real-time. ● Voting system to select which project are open for funding ● An account
+control of the assets to comply with regulations ● Consider using Qubic bridge so these
+RWA tokens can also be used in ETH Defi protocols.
+Criterios de selección de ganadores: Criteria Weight Desirability: a solution that people want
+or need 15% Feasibility: the solution can be developed with existing technology 20%
+Viability: a solution that can be profitable 15% Project definition: ● Submission clearly
+defines app purpose and inspiration ● Submission fully describes apps features and
+functionality ● Submission describes possible next steps for the project 15% Technical
+complexity: ● App is technically interesting or difficult ● App contains complex business
+logic, not just an API with a UI ● App uses appropriate technology to meet app needs 15%
+Quality: ● App works as expected end-to-end ● App takes into consideration UX/UI, security
+and accessibility ● App functionality, as submitted, is close to project description 20%
+Genera los puntos de negocio e implementación técnica relevantes para desarollar la
+aplicación y aspectos a tener en cuenta. Toma tu tiempo para razonar e incluye
+recomendaciones que como experto en los temas consideres adecuadas.
