@@ -1,23 +1,47 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model, isValidObjectId } from 'mongoose';
 import { CreateTokenDto } from './dto/create-token.dto';
-import { UpdateTokenDto } from './dto/update-token.dto';
+import { Token, TokenDocument } from './entities/token.entity';
 
 @Injectable()
 export class TokenService {
-  create(createTokenDto: CreateTokenDto) {
-    return 'This action adds a new token';
+  constructor(
+    @InjectModel(Token.name) private tokenModel: Model<TokenDocument>,
+  ) {}
+
+  async create(createTokenDto: CreateTokenDto): Promise<Token> {
+    const newToken = new this.tokenModel(createTokenDto);
+    return newToken.save();
   }
 
-  findAll() {
-    return `This action returns all token`;
+  async findAll() {
+    return this.tokenModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} token`;
+  async findOne(id: string): Promise<Token> {
+    if (!isValidObjectId(id)) {
+      throw new NotFoundException(`Invalid token ID: ${id}`);
+    }
+
+    const token = await this.tokenModel.findById(id).exec();
+
+    if (!token) {
+      throw new NotFoundException(`Token with ID ${id} not found`);
+    }
+
+    return token;
   }
 
-  update(id: number, updateTokenDto: UpdateTokenDto) {
-    return `This action updates a #${id} token`;
+  async findByPlayerId(playerId: string): Promise<Token[]> {
+    const tokens = await this.tokenModel.find({ playerId }).exec();
+
+    if (!tokens || tokens.length === 0) {
+      throw new NotFoundException(
+        `No tokens found for player with ID ${playerId}`,
+      );
+    }
+    return tokens;
   }
 
   remove(id: number) {
