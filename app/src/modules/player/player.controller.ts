@@ -6,11 +6,6 @@ import { CreatePlayerDto } from './dto/create-player.dto';
 export class PlayerController {
   constructor(private readonly playerService: PlayerService) {}
 
-  @Post()
-  create(@Body() createPlayerDto: CreatePlayerDto) {
-    return this.playerService.create(createPlayerDto);
-  }
-
   @Get()
   findAll() {
     return this.playerService.findAll();

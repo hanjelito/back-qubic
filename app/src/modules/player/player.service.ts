@@ -11,10 +11,6 @@ export class PlayerService {
     @InjectModel(Player.name) private playerModel: Model<PlayerDocument>,
   ) {}
 
-  create(createPlayerDto: CreatePlayerDto) {
-    return 'This action adds a new player';
-  }
-
   async findAll(): Promise<Player[]> {
     return this.playerModel.find().exec();
   }
@@ -25,13 +21,5 @@ export class PlayerService {
       throw new NotFoundException(`Player with ID ${id} not found`);
     }
     return player;
-  }
-
-  update(id: number, updatePlayerDto: UpdatePlayerDto) {
-    return `This action updates a #${id} player`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} player`;
   }
 }
