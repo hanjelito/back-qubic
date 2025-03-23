@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PlayerModule } from './modules/player/player.module';
@@ -8,7 +9,6 @@ import { FundingModule } from './modules/funding/funding.module';
 import { WalletModule } from './modules/wallet/wallet.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { SearchModule } from './modules/search/search.module';
-import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
