@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ApiModule } from './modules/api/api.module';
 import { PlayerModule } from './modules/player/player.module';
 import { TokenModule } from './modules/token/token.module';
 import { FundingModule } from './modules/funding/funding.module';
@@ -20,11 +19,10 @@ import { MongooseModule } from '@nestjs/mongoose';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async () => ({
-        // uri: 'mongodb://root:jTKPT%401F3.y@mongo:27017/nestdb?authSource=admin',
-        uri: 'mongodb://root:jTKPT%401F3.y@194.164.234.59:27017/nestdb?authSource=admin',
+        uri: 'mongodb://root:jTKPT%401F3.y@mongo:27017/nestdb?authSource=admin',
+        // uri: 'mongodb://root:jTKPT%401F3.y@194.164.234.59:27017/nestdb?authSource=admin',
       }),
     }),
-    ApiModule,
     PlayerModule,
     TokenModule,
     FundingModule,
