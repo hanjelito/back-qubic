@@ -20,7 +20,8 @@ import { MongooseModule } from '@nestjs/mongoose';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async () => ({
-        uri: 'mongodb://root:jTKPT%401F3.y@mongo:27017/nestdb?authSource=admin', // 🔐 conexión hardcoded por ahora
+        // uri: 'mongodb://root:jTKPT%401F3.y@mongo:27017/nestdb?authSource=admin',
+        uri: 'mongodb://root:jTKPT%401F3.y@194.164.234.59:27017/nestdb?authSource=admin',
       }),
     }),
     ApiModule,

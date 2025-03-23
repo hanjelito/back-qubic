@@ -1,26 +1,31 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateFundingDto } from './dto/create-funding.dto';
 import { UpdateFundingDto } from './dto/update-funding.dto';
+import { Funding, FundingDocument } from './entities/funding.entity';
+import { Model, isValidObjectId } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class FundingService {
-  create(createFundingDto: CreateFundingDto) {
-    return 'This action adds a new funding';
-  }
+  constructor(
+    @InjectModel(Funding.name) private fundingModel: Model<FundingDocument>,
+  ) {}
 
   findAll() {
-    return `This action returns all funding`;
+    return this.fundingModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} funding`;
-  }
+  async findOne(id: string): Promise<Funding> {
+    if (!isValidObjectId(id)) {
+      throw new NotFoundException(`Invalid token ID: ${id}`);
+    }
 
-  update(id: number, updateFundingDto: UpdateFundingDto) {
-    return `This action updates a #${id} funding`;
-  }
+    const token = await this.fundingModel.findById(id).exec();
 
-  remove(id: number) {
-    return `This action removes a #${id} funding`;
+    if (!token) {
+      throw new NotFoundException(`Token with ID ${id} not found`);
+    }
+
+    return token;
   }
 }
